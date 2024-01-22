@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(97, 94, 153);
+    background: linear-gradient(90deg, rgb(29, 24, 119) 0%, rgba(27,27,88,1) 35%, rgb(58, 143, 160) 100%);
+    font-family: Arial, sans-serif;
+}
+
+
+.login-container, .admin-container {
+    background: rgb(187,16,177);
+    background: linear-gradient(45deg, rgba(187,16,177,1) 0%, rgba(0,212,255,1) 100%);
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+h2 {
+    font-family: monospace;
+  font-size: 3em;
+  animation: color-change 2s infinite;
+    text-align: center;
+}
+
+@keyframes color-change {
+    0% { color: rgb(43, 255, 0); }
+    50% { color: rgb(253, 5, 5); }
+    100% { color: rgb(4, 92, 255); }
+  }
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+}
+
+.admin-container {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #af4c4c;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
