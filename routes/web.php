@@ -35,7 +35,7 @@ Route::get('/contact', function () {
 });
 
 
-Route::get('/sekola', function () {
+Route::get('/kola', function () {
     return view('index');
 });
 

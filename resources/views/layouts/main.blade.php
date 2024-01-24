@@ -25,7 +25,7 @@
     
 @include('layouts.NavWebKola')
 
-@yield('content')
+@yield('index')
 @yield('contact')
 
 @include('layouts.FootWebKola')

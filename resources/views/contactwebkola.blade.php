@@ -21,29 +21,12 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/contactwebkola" method="post">
-                    <!-- Name input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                        <label for="name">Nama</label>
-                        <div class="invalid-feedback" data-sb-feedback="name:required">Butuh Nama</div>
-                    </div>
-                    <!-- Email address input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                        <label for="email">Email</label>
-                        <div class="invalid-feedback" data-sb-feedback="email:required">Butuh Email</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email Tidak Valid</div>
-                    </div>
-                    <!-- Phone number input-->
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                        <label for="phone">No. Telp</label>
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">Butuh No. Telp</div>
-                    </div>
+                
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    
                     <!-- Message input-->
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="komen" name="komen" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                         <label for="message">Pesan</label>
                         <div class="invalid-feedback" data-sb-feedback="message:required">Pesan Dibutuhkan</div>
                     </div>
@@ -67,6 +50,19 @@
                     <!-- Submit Button-->
                     <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Kirim</button></div>
                 </form>
+                <br>
+                <center>
+                <div class="card w-75">
+                    <div class="card-body">
+                      <h5 class="card-title">Komen:</h5>
+                      @foreach ($items as $item)
+                      <p class="card-text">{{ $item->pesan }}</p>
+                      @endforeach
+                      <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </center>
+                
             </div>
         </div>
         
