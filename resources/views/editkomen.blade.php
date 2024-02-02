@@ -22,8 +22,9 @@
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
                 
-                <form method="post" action="/contactwebkola">
+                <form method="post" action="{{ route('template.update', $contact->id) }}" >
                     @csrf
+                    @method('PUT')
                     <!-- Name input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="name" name="nama" type="text" placeholder="Enter your name..." data-sb-validations="required"/>
@@ -32,7 +33,7 @@
                     </div>
                     <!-- Message input-->
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" id="message" name="pesan" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <textarea class="form-control" id="message" name="pesan" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required">{{ old('message', $contact->message) }}</textarea>
                         <label for="message">Pesan</label>
                         <div class="invalid-feedback" data-sb-feedback="message:required">Pesan Dibutuhkan</div>
                     </div>
@@ -54,31 +55,10 @@
                     <!-- an error submitting the form-->
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Ada eror saat mengirim</div></div>
                     <!-- Submit Button-->
-                    <div class="d-grid"><button class="btn btn-primary btn-xl-"  type="submit">Kirim</button></div>
+                    <div class="d-grid"><button class="btn btn-primary btn-xl-" type="submit">Kirim</button></div>
+
+                    
                 </form>
-                <br>
-                <center>
-                @foreach ($items as $item)
-                <div class="card w-75">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ $item->nama }}:</h5>
-                      <p class="card-text">{{ $item->pesan }}</p>
-                      <form action="{{ route('template.delete', $item) }}" method="post">
-
-                        <a href="{{ route('template.edit', $item) }}" class="btn btn-primary">Edit</a>
-                        <!-- Inside the foreach loop for displaying items -->
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-primary">Hapus</button>
-                    </form>
-
-                      
-                    </div>
-                  </div>
-                  <br>
-                  @endforeach
-                </center>
                 
             </div>
         </div>

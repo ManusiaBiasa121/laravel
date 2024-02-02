@@ -15,7 +15,9 @@ use App\Http\Controllers\ControllerContact;
 */
 
 Route::get('/', function () {
-    return view('home' , [ "title" => "Home"]);
+    return view('welcome' , [
+        "title" => "Home" 
+    ]);
 });
 
 Route::get('/coba', function () {
@@ -27,18 +29,33 @@ Route::get('/biodata', function () {
 });
 
 Route::get('/about', function () {
-    return view('about' , [ "title" => "About"]);
+    return view('about' , [
+        "title" => "About" ,
+        
+]);
 });
 
 Route::get('/contact', function () {
-    return view('contact' , [ "tlp" => "0892925275258"] , [ "title" => "Contact"]);
+    return view('contactwebkola' , [
+        "tlp" => "0892925275258" ,
+         "title" => "Contact"
+]);
 });
 
 
 Route::get('/kola', function () {
-    return view('index');
+    return view('index'  , [
+        "title" => "Menu Utama"
+]);
 });
 
+Route::get('/editkomen', function () {
+    return view('editkomen'  , [ "title" => "Menu Utama"]);
+});
 
 Route::get('/contactwebkola', [ControllerContact::class, 'index']);
 Route::post('/contactwebkola', [ControllerContact::class, 'store']); 
+Route::get('/contactwebkola', [ControllerContact::class, 'edit']);
+Route::get('/contact/edit/{id}', [ContactController::class, 'edit'])->name('template.edit');
+Route::put('/contact/update/{id}', [ContactController::class, 'update'])->name('template.update');
+Route::delete('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('template.delete');
